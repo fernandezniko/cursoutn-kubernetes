@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: utn-node-server
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: utn-node
+  template:
+    metadata:
+      labels:
+        app: utn-node
+    spec:
+      containers:
+      - name: utn-node
+        image: fernandeznicodev/utn-nodejs-image
+        ports:
+        - containerPort: 3000
